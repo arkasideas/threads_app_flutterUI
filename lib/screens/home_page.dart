@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:threads_app_ui_design/data/datasource.dart';
 import 'package:threads_app_ui_design/data/thread.dart';
+import 'package:threads_app_ui_design/screens/thread_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,7 +31,14 @@ class HomePage extends StatelessWidget {
                   final threadlist =
                       threadRemoteDataSource().getThread()[index];
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ThreadScreen(),
+                        ),
+                      );
+                    },
                     child: Stack(
                       alignment: AlignmentDirectional.bottomEnd,
                       children: [
@@ -113,9 +121,7 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Container(
-                              padding: EdgeInsets.only(
-                                bottom: 10,
-                              ),
+                              padding: EdgeInsets.only(bottom: 10, left: 40),
                               alignment: Alignment.bottomLeft,
                               height: 50,
                               child: Padding(
@@ -133,6 +139,59 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                           ],
+                        ),
+                        Positioned(
+                          left: 35,
+                          top: 63,
+                          child: Container(
+                            height: 400,
+                            width: 3,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade300,
+                              borderRadius: BorderRadius.circular(1),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 330,
+                          child: Container(
+                            height: 35,
+                            width: 35,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade100,
+                              borderRadius: BorderRadius.circular(1),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  right: 0,
+                                  child: CircleAvatar(
+                                    backgroundImage: AssetImage(
+                                        "images/${threadlist.replier}"),
+                                    radius: 9,
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 0,
+                                  top: 10,
+                                  child: CircleAvatar(
+                                    backgroundImage: AssetImage(
+                                        "images/${threadlist.replier1}"),
+                                    radius: 7,
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  right: 8,
+                                  child: CircleAvatar(
+                                    backgroundImage: AssetImage(
+                                        "images/${threadlist.replier2}"),
+                                    radius: 6,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),
