@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:threads_app_ui_design/screens/landing_page.dart';
 
 class ThreadScreen extends StatefulWidget {
   const ThreadScreen({super.key});
@@ -125,10 +126,23 @@ class _ThreadScreenState extends State<ThreadScreen> {
                   ),
                 ),
                 SizedBox(height: 10),
-                Text(
-                  "Via Threads",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LandingPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Via Threads",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                )
               ],
             ),
           ),
