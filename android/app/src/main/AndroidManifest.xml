@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="threads_app_ui_design"
+        android:label="Threads Clone UI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
